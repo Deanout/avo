@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+<% if current_user %>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }%>
+<% end %>
+<h1>Posts</h1>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+<%= link_to "New post", new_post_path %>
